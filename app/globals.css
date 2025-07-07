@@ -38,3 +38,11 @@ body {
 .my-drop-shadow{
   filter: drop-shadow(0 0 2 #ffffff);
 }
+
+.drop-shadow-plus{
+  filter: drop-shadow(0 0 10px #ffffff);
+}
+
+.my-text-shadow{
+  text-shadow: 0 0 1px white;
+}

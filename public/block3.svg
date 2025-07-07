@@ -1,0 +1,21 @@
+<svg width="200" height="162" viewBox="0 0 200 162" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M100.194 48.999L100.053 97L60.2251 74L60.3541 26L100.194 48.999Z" stroke="#C9F31D" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M139.775 26L139.646 74L100.053 97L100.194 48.999L139.775 26Z" stroke="#C9F31D" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M139.775 26L100.194 48.999L60.354 26L99.947 3L139.775 26Z" stroke="#C9F31D" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M100.194 110.999L100.053 159L60.2251 136L60.3541 88L100.194 110.999Z" stroke="#C9F31D" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M139.775 88L139.646 136L100.053 159L100.194 110.999L139.775 88Z" stroke="#C9F31D" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M139.775 88L100.194 110.999L60.354 88L99.947 65L139.775 88Z" stroke="#C9F31D" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<g clip-path="url(#clip0_106_33)">
+<path d="M50.1941 77.999L50.0531 126L10.2251 103L10.3541 55L50.1941 77.999Z" stroke="#C9F31D" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M89.775 55L89.646 103L50.053 126L50.194 77.999L89.775 55Z" stroke="#C9F31D" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M89.775 55L50.194 77.999L10.354 55L49.947 32L89.775 55Z" stroke="#C9F31D" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<path d="M150.194 77.999L150.053 126L110.225 103L110.354 55L150.194 77.999Z" stroke="#C9F31D" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M189.775 55L189.646 103L150.053 126L150.194 77.999L189.775 55Z" stroke="#C9F31D" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M189.775 55L150.194 77.999L110.354 55L149.947 32L189.775 55Z" stroke="#C9F31D" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<defs>
+<clipPath id="clip0_106_33">
+<rect width="100" height="100" fill="white" transform="translate(0 29)"/>
+</clipPath>
+</defs>
+</svg>
