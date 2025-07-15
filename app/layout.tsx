@@ -23,7 +23,7 @@ export default function RootLayout({
   return (
     <html lang="ru">
       <body
-        className={`${outfit.variable} font-sans`}
+        className={`${outfit.variable} font-sans overflow-x-hidden`}
       >
         <Header/>
         {children}

@@ -15,7 +15,7 @@ const InfiniteSlider: React.FC<InfiniteSliderProps> = ({
     words,
     speed = 1,
     className = '',
-    wordClassName = 'text-[100px] font-medium text-white'
+    wordClassName = 'text-4xl py-10 sm:p-0 sm:text-6xl md:text-8xl lg:text-[100px] font-medium text-white'
 }) => {
     const [currentWords, setCurrentWords] = useState([...words, ...words]);
     const controls = useAnimationControls();
@@ -64,11 +64,17 @@ const InfiniteSlider: React.FC<InfiniteSliderProps> = ({
                             ref={index === 0 ? itemRef : null}
                             className={`${wordClassName} flex items-center`}
                         >
-                            <div>{word}</div>
-                            <div className='w-[50px] mx-15'><Image src='/plus.svg' className="w-full h-full drop-shadow-plus" width={100} height={100} alt="image" /></div>
+                            <div className="whitespace-nowrap">{word}</div>
+                            <div className='w-8 sm:w-10 md:w-12 lg:w-[50px] mx-2 sm:mx-4 lg:mx-15'>
+                                <Image 
+                                    src='/plus.svg' 
+                                    className="w-full h-full drop-shadow-plus" 
+                                    width={100} 
+                                    height={100} 
+                                    alt="plus icon" 
+                                />
+                            </div>
                         </div>
-
-
                     ))}
                 </motion.div>
             </div>
