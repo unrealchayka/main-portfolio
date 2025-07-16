@@ -11,8 +11,8 @@ export default function () {
       <Preview />
       <About />
       <InfiniteSlider speed={0.4} words={['Creative', 'Innovative', 'Designer', 'Digital', 'IT', 'Backend', 'Frontend', 'Full-stack', 'Web Dev', '#Hello_World_XD', 'Skills', 'world',]} />
-      <Skills/>
-      <Contact/>
+      <Skills />
+      <Contact />
     </>
   );
 }
@@ -20,34 +20,35 @@ export default function () {
 function Preview() {
   return (
     <div className="relative overflow-hidden">
-      <Image 
-        src='/2.svg' 
-        className="w-full h-screen object-cover absolute top-0" 
-        width={1380} 
-        height={1050} 
-        alt="bg-image" 
+      <Image
+        src='/2.svg'
+        className="w-full h-screen object-cover absolute top-0"
+        width={1380}
+        height={1050}
+        alt="bg-image"
         priority
       />
-      
+
       <div className="absolute top-[20vh] sm:top-[10vh] right-[5%] sm:right-[10%] w-[40%] sm:w-[30%]">
-        <Image 
-          src='/cube.png' 
-          className="w-full" 
-          width={2000} 
-          height={2000} 
-          alt="cube-image" 
+        <Image
+          src='/cube.png'
+          className="w-full"
+          width={2000}
+          height={2000}
+          alt="cube-image"
         />
-        <Image 
-          src='/hero.png' 
-          className="w-full absolute top-0 left-0 my-drop-shadow" 
-          width={2000} 
-          height={2000} 
-          alt="hero-image" 
+        <Image
+          src='/hero.png'
+          className="w-full absolute top-0 left-0 my-drop-shadow"
+          width={2000}
+          height={2000}
+          alt="hero-image"
         />
       </div>
 
-      <div className="absolute flex gap-4 sm:gap-10 top-[70%] sm:top-[80%] left-[5%] sm:left-[15%] w-[80%] sm:w-[500px]">
-        {[80, 60, 40].map((size, index) => (
+
+      <div className="absolute flex gap-3 sm:gap-6 md:gap-10 top-[70%] sm:top-[70%] md:top-[80%] left-[5%] sm:left-[10%] md:left-[15%] w-[90%] sm:w-[80%] md:w-[500px]">
+        {[1, 2, 3].map((item, index) => (
           <motion.div
             key={index}
             className="flex justify-center items-center"
@@ -55,18 +56,19 @@ function Preview() {
               repeat: Infinity,
               repeatType: "reverse",
               duration: 2,
-              delay: index * 0.2,
+              delay: index * 0.1,
               ease: "easeInOut"
             }}
             initial={{ scale: 1 }}
             animate={{ scale: 1.1 }}
           >
-            <Image 
-              src='/cross.svg' 
-              className={`w-[${size}%]`} 
-              width={100} 
-              height={100} 
-              alt="cross-icon" 
+
+            <Image
+              src='/cross.svg'
+              className='w-8 h-8 sm:w-10 sm:h-10 md:w-15 md:h-15 lg:w-20 lg:h-20'
+              width={100}
+              height={100}
+              alt="cross-icon"
             />
           </motion.div>
         ))}
@@ -84,12 +86,12 @@ function Preview() {
         initial={{ y: 0 }}
         animate={{ y: 10 }}
       >
-        <Image 
-          src='/arrows3.svg' 
-          className="w-full" 
-          width={100} 
-          height={100} 
-          alt="scroll-indicator" 
+        <Image
+          src='/arrows3.svg'
+          className="w-full"
+          width={100}
+          height={100}
+          alt="scroll-indicator"
         />
       </motion.div>
 
@@ -99,26 +101,26 @@ function Preview() {
         <div className="relative w-full max-w-4xl">
           <div className="hidden sm:block absolute w-12 border-3 border-r-0 h-full left-[-80px] sm:left-[-100px]"></div>
           <div className="hidden sm:block absolute w-12 border-3 border-l-0 h-full right-[-80px] sm:right-[-100px]"></div>
-          
+
           <h1 className="flex  gap-3 items-start sm:items-center font-bold text-xl sm:text-2xl pb-3">
-            Hey There! My Name is Andrey 
+            Hey There! My Name is Andrey
             <div className="h-[1px] w-16 sm:w-[80px] bg-[silver]/40"></div>
           </h1>
-          
+
           <div className="text-4xl sm:text-4xl md:text-6xl lg:text-[120px] font-extrabold uppercase">
             <div className="flex items-center gap-2 sm:gap-5 relative bg-gradient-to-r from-transparent via-white/30 to-transparent text-[#050505] my-text-shadow py-2 sm:py-0">
               <span>Full-Stack</span>
-              <Image 
-                src='/3.svg' 
-                className="w-16 h-16 sm:w-24 sm:h-24 animate-[spin_12s_linear_infinite]" 
-                width={116} 
-                height={116} 
-                alt="spinning-icon" 
+              <Image
+                src='/3.svg'
+                className="w-16 h-16 sm:w-24 sm:h-24 animate-[spin_12s_linear_infinite]"
+                width={116}
+                height={116}
+                alt="spinning-icon"
               />
               <div className="hidden sm:block absolute h-[2px] w-[200px] md:w-[500px] lg:w-[700px] bg-gradient-to-r from-transparent via-white to-transparent bottom-[-0.5px] z-4 left-[40%] translate-x-[-50%]"></div>
               <div className="hidden sm:block absolute h-[2px] w-[200px] md:w-[500px] lg:w-[700px] bg-gradient-to-r from-transparent via-white/80 to-transparent top-[-0.5px] z-4 left-[40%] translate-x-[-50%]"></div>
             </div>
-            
+
             <div className="flex items-center gap-2 sm:gap-5 relative bg-gradient-to-r from-transparent via-black/80 to-transparent mt-2 sm:mt-0">
               <motion.div
                 transition={{
@@ -131,12 +133,12 @@ function Preview() {
                 animate={{ x: 20 }}
                 className="w-32 sm:w-auto"
               >
-                <Image 
-                  src='/5.svg' 
-                  className="w-full" 
-                  width={392} 
-                  height={86} 
-                  alt="motion-icon" 
+                <Image
+                  src='/5.svg'
+                  className="w-full"
+                  width={392}
+                  height={86}
+                  alt="motion-icon"
                 />
               </motion.div>
               <span>Developer</span>
@@ -156,18 +158,18 @@ function About() {
           About Me
           <div className="h-[1px] w-12 sm:w-[80px] bg-[silver]/40"></div>
         </h1>
-        
+
         <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 sm:gap-5 relative">
           <p className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[100px] font-bold leading-tight sm:leading-none">
             Passion for <br /> Digital Innovation
           </p>
           <div className="self-end sm:self-center">
-            <Image 
-              src='/1.svg' 
-              className="w-16 sm:w-20 md:w-24 lg:w-28 xl:w-[100px] h-auto" 
-              width={100} 
-              height={100} 
-              alt="image" 
+            <Image
+              src='/1.svg'
+              className="w-16 sm:w-20 md:w-24 lg:w-28 xl:w-[100px] h-auto"
+              width={100}
+              height={100}
+              alt="image"
             />
           </div>
         </div>
@@ -176,38 +178,38 @@ function About() {
       <div className="container mx-auto px-4 sm:px-5% mt-16 sm:mt-24 md:mt-32 lg:mt-[200px]">
         <div className="flex flex-col lg:flex-row items-center gap-8 xl:gap-[10%]">
           <div className="w-full sm:w-4/5 md:w-2/3 lg:w-[30%] h-auto">
-            <Image 
-              src='/hero.avif' 
-              className="w-full h-auto rounded-lg" 
-              width={640} 
-              height={1024} 
-              alt="bg-image" 
+            <Image
+              src='/hero.avif'
+              className="w-full h-auto rounded-lg"
+              width={640}
+              height={1024}
+              alt="bg-image"
               layout="responsive"
             />
           </div>
-          
+
           <div className="w-full lg:w-[60%] space-y-4 sm:space-y-5 p-4 sm:p-[3%]">
             <p className="text-sm sm:text-base md:text-lg lg:text-xl">
               My journey began with a deep curiosity about how systems work behind the scenes. What started as simple scripts evolved into a passion for building robust, scalable architectures.
               Driven by an engineering mindset, I specialize in creating efficient backend solutions while maintaining strong frontend capabilities.
             </p>
-            
+
             <p className="text-sm sm:text-base md:text-lg lg:text-xl">
               My focus is on developing high-performance systems that handle complex logic while delivering seamless user experiences.
               From database optimizations to API design and cloud infrastructure, I bridge the gap between system reliability and user-centric interfaces. Every line of code I write is measured by its performance impact and maintainability.
             </p>
-            
+
             <div className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6 md:gap-10 mt-8 sm:mt-10">
               <div className="text-center">
                 <span className="text-[#C9F31D] text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[80px]">58</span>
                 <p className="text-sm sm:text-base md:text-lg lg:text-xl">Projects Completed</p>
               </div>
-              
+
               <div className="border-x border-[silver] px-4 sm:px-5">
                 <span className="text-[#C9F31D] text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[80px]">1000+</span>
                 <p className="text-sm sm:text-base md:text-lg lg:text-xl">Happy Clients</p>
               </div>
-              
+
               <div className="text-center">
                 <span className="text-[#C9F31D] text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[80px]">342</span>
                 <p className="text-sm sm:text-base md:text-lg lg:text-xl">Cups of Coffee</p>
@@ -220,7 +222,7 @@ function About() {
   )
 }
 
-function Skills(){
+function Skills() {
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
 
   const skillsData = {
@@ -245,12 +247,12 @@ function Skills(){
 
   return (
     <div className="container p-[5%] mx-auto my-[5%] bg-[#111]">
-        <h1 className="flex gap-3 items-center font-bold text-2xl">Skills<div className="h-[1px] w-[80px] bg-[silver]/40"></div></h1>
-        <p className="flex mt-10 justify-between text-[20px] sm:text-[25px] lg:text-[40px] md:text-[30px] xl:text-[100px] items-center gap-5 relative font-bold leading-none">
-          Look what <br />I've learned
-          <Image src='/block3.svg' className="w-[25%] absolute right-[20%]" width={100} height={100} alt="image" />
-        </p>
-      
+      <h1 className="flex gap-3 items-center font-bold text-2xl">Skills<div className="h-[1px] w-[80px] bg-[silver]/40"></div></h1>
+      <p className="flex mt-10 justify-between text-[20px] sm:text-[25px] lg:text-[40px] md:text-[30px] xl:text-[100px] items-center gap-5 relative font-bold leading-none">
+        Look what <br />I've learned
+        <Image src='/block3.svg' className="w-[25%] absolute right-[20%]" width={100} height={100} alt="image" />
+      </p>
+
       <div className="space-y-4 mt-20">
         {Object.entries(skillsData).map(([category, levels]) => (
           <div key={category} className="overflow-hidden">
@@ -264,9 +266,8 @@ function Skills(){
                 {category === 'others' && 'Другие навыки'}
               </span>
               <svg
-                className={`w-5 h-5 transform transition-transform ${
-                  activeCategory === category ? 'rotate-180' : ''
-                }`}
+                className={`w-5 h-5 transform transition-transform ${activeCategory === category ? 'rotate-180' : ''
+                  }`}
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -302,8 +303,8 @@ function Skills(){
 };
 
 
-function Contact(){
-  return(
+function Contact() {
+  return (
     <div className="bg-black py-[5%]">
       <div className="container m-auto">
         <div className="flex flex-col items-center text-[20px] sm:text-[25px] lg:text-[40px] md:text-[30px] xl:text-[100px]">
