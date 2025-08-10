@@ -3,11 +3,34 @@ import { motion } from "motion/react";
 import Image from "next/image";
 import { Shadow } from "./components/Shadow";
 import InfiniteSlider from "./components/InfinitySlider";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Project from "./components/Project";
-import { div } from "motion/react-client";
 
 export default function () {
+  const [activeSection, setActiveSection] = useState('home');
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = ['home', 'about', 'skills', 'projects', 'contacts'];
+      const scrollPosition = window.scrollY -300;
+
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const offsetTop = element.offsetTop;
+          const offsetHeight = element.offsetHeight;
+
+          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+            setActiveSection(section);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
   return (
     <>
       <Preview />
@@ -22,7 +45,7 @@ export default function () {
 
 function Preview() {
   return (
-    <div className="relative overflow-hidden">
+    <div id="home" className="relative overflow-hidden">
       <Image
         src='/2.svg'
         className="w-full h-screen object-cover absolute top-0"
@@ -155,7 +178,7 @@ function Preview() {
 
 function About() {
   return (
-    <div className="my-[5%] overflow-hidden">
+    <div id="about" className="my-[5%] overflow-hidden">
       <div className="container mx-auto px-4 sm:px-5% pt-16 md:pt-24 lg:pt-[100px]">
         <h1 className="flex gap-3 items-center font-bold text-xl sm:text-2xl">
           About Me
@@ -249,7 +272,7 @@ function Skills() {
   };
 
   return (
-    <div className="container p-[5%] mx-auto my-[5%] bg-[#111]">
+    <div id="skills" className="container p-[5%] mx-auto my-[5%] bg-[#111]">
       <h1 className="flex gap-3 items-center font-bold text-2xl">Skills<div className="h-[1px] w-[80px] bg-[silver]/40"></div></h1>
       <p className="flex mt-10 justify-between text-[20px] sm:text-[25px] lg:text-[40px] md:text-[30px] xl:text-[100px] items-center gap-5 relative font-bold leading-none">
         Look what <br />I've learned
@@ -331,7 +354,7 @@ function Projects() {
   ];
 
   return (
-    <section className="container px-5 py-10 mx-auto my-5 md:my-10 rounded-md bg-gray-200 text-gray-900">
+    <section id="projects" className="container px-5 py-10 mx-auto my-5 md:my-10 rounded-md bg-gray-200 text-gray-900">
       <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-8 md:mb-12">
         Projects
       </h2>
@@ -355,7 +378,7 @@ function Projects() {
 
 function Contact() {
   return (
-    <div className="bg-black py-[5%]">
+    <div id="contacts" className="bg-black py-[5%] flex flex-col justify-center items-center h-screen">
       <div className="container m-auto">
         <div className="flex flex-col items-center text-[20px] sm:text-[25px] lg:text-[40px] md:text-[30px] xl:text-[100px]">
           <h1 className="text-[#C9F31D] uppercasefont-bold text-center font-bold">Let’s Talk</h1>

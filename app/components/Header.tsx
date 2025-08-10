@@ -1,14 +1,57 @@
 "use client";
 
 import { motion, useScroll, useMotionValueEvent, AnimatePresence } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
+
+
+export const useActiveSection = (sections: string[], offset = 100) => {
+  const [activeSection, setActiveSection] = useState(sections[0]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY + offset;
+
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const { offsetTop, offsetHeight } = element;
+          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+            setActiveSection(section);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [sections, offset]);
+
+  return activeSection;
+};
+
+
 
 export const Header = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const { scrollY } = useScroll();
+    const sections = ['home', 'about', 'skills', 'projects', 'contacts'];
+  const activeSection = useActiveSection(sections, 100); // 100px offset
 
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      const offset = 100;
+      const elementTop = element.getBoundingClientRect().top + window.pageYOffset;
+      
+      window.scrollTo({
+        top: elementTop - offset,
+        behavior: 'smooth'
+      });
+    }
+  };
     useMotionValueEvent(scrollY, "change", (latest) => {
         setIsScrolled(latest > 50);
     });
@@ -39,32 +82,34 @@ export const Header = () => {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ duration: 0.5 }}
-                        exit={{opacity: 0}}
+                        exit={{ opacity: 0 }}
                         style={{
                             background: "linear-gradient(to right, transparent, rgba(255,255,255,0.8), transparent)"
                         }}
                     />
                 )}
             </AnimatePresence>
-            
+
             <div className="container mx-auto flex justify-between items-center py-2 text-base sm:text-[20px]">
                 <div className="flex items-center gap-2 sm:gap-5 font-bold">
-                    <Image 
-                        src='/logo.svg' 
-                        className="w-8 sm:w-10 md:w-12" 
-                        width={100} 
-                        height={100} 
-                        alt="Website logo" 
+                    <Image
+                        src='/logo.svg'
+                        className="w-8 sm:w-10 md:w-12"
+                        width={100}
+                        height={100}
+                        alt="Website logo"
                     />
                     <span className="hidden sm:inline">My logo</span>
                 </div>
 
                 <nav className="hidden md:block">
                     <ul className="flex px-2 sm:px-5 justify-between gap-5 sm:gap-10 text-sm sm:text-[18px] items-end border-b-2 border-[silver]/40">
-                        {['Home', 'About', 'Skills', 'Projects', 'Contacts'].map((item) => (
-                            <li 
+                        {['home', 'about', 'skills', 'projects', 'contacts'].map((item) => (
+                            <li
                                 key={item}
-                                className="hover:text-[#C9F31D] transition-colors cursor-pointer whitespace-nowrap"
+                                onClick={() => scrollToSection(item)}
+                                className={`${activeSection === item ? 'text-[#C9F31D]' : ''
+                                    } hover:text-[#C9F31D] transition-colors capitalize cursor-pointer whitespace-nowrap"`}
                             >
                                 {item}
                             </li>
@@ -72,7 +117,7 @@ export const Header = () => {
                     </ul>
                 </nav>
 
-                <button 
+                <button
                     className="md:hidden text-white focus:outline-none"
                     onClick={toggleMobileMenu}
                 >
@@ -100,9 +145,10 @@ export const Header = () => {
                         transition={{ duration: 0.3 }}
                     >
                         <ul className="flex flex-col items-center py-4 gap-4">
-                            {['Home', 'Projects', 'About', 'Contacts'].map((item) => (
+                            {['home', 'projects', 'about', 'contacts'].map((item) => (
                                 <motion.li
                                     key={item}
+                                    onClick={() => scrollToSection(item)}
                                     className="text-white hover:text-[#C9F31D] transition-colors cursor-pointer text-lg"
                                     initial={{ x: -20, opacity: 0 }}
                                     animate={{ x: 0, opacity: 1 }}
