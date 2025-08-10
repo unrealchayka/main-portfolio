@@ -23,7 +23,6 @@ const InfiniteSlider: React.FC<InfiniteSliderProps> = ({
     const [itemWidth, setItemWidth] = useState(0);
     const itemRef = useRef<HTMLDivElement>(null);
 
-    // Измеряем ширину одного элемента
     useEffect(() => {
         if (itemRef.current) {
             const width = itemRef.current.offsetWidth;

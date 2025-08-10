@@ -4,6 +4,8 @@ import Image from "next/image";
 import { Shadow } from "./components/Shadow";
 import InfiniteSlider from "./components/InfinitySlider";
 import { useState } from "react";
+import Project from "./components/Project";
+import { div } from "motion/react-client";
 
 export default function () {
   return (
@@ -12,6 +14,7 @@ export default function () {
       <About />
       <InfiniteSlider speed={0.4} words={['Creative', 'Innovative', 'Designer', 'Digital', 'IT', 'Backend', 'Frontend', 'Full-stack', 'Web Dev', '#Hello_World_XD', 'Skills', 'world',]} />
       <Skills />
+      <Projects />
       <Contact />
     </>
   );
@@ -179,7 +182,7 @@ function About() {
         <div className="flex flex-col lg:flex-row items-center gap-8 xl:gap-[10%]">
           <div className="w-full sm:w-4/5 md:w-2/3 lg:w-[30%] h-auto">
             <Image
-              src='/hero.avif'
+              src='/hero.jpg'
               className="w-full h-auto rounded-lg"
               width={640}
               height={1024}
@@ -298,6 +301,33 @@ function Skills() {
           </div>
         ))}
       </div>
+    </div>
+  );
+};
+
+function Projects() {
+
+  const ProjectsData = [
+    { src: '/projects/1.jpg', alt: 'project1' },
+    { src: '/projects/2.jpg', alt: 'project2' },
+    { src: '/projects/3.jpg', alt: 'project3' },
+  ];
+
+  return (
+    <div className="container p-[5%] mx-auto my-[5%] rounded-md bg-[#d1d1d1] text-[#111]">
+      <p className="flex mt-10 justify-between mb-10 text-[20px] sm:text-[25px] lg:text-[40px] md:text-[30px] xl:text-[100px] items-center gap-5 relative font-bold leading-none">
+        Projects
+      </p>
+
+      <div className="flex flex-col gap-5 w-full">
+        {ProjectsData.map((project, index) => (
+          <div key={index}>
+            <Project src={project.src} alt={project.alt} />
+          </div>
+        ))}
+
+      </div>
+
     </div>
   );
 };

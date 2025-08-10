@@ -48,7 +48,6 @@ export const Header = () => {
             </AnimatePresence>
             
             <div className="container mx-auto flex justify-between items-center py-2 text-base sm:text-[20px]">
-                {/* Logo Section */}
                 <div className="flex items-center gap-2 sm:gap-5 font-bold">
                     <Image 
                         src='/logo.svg' 
@@ -60,10 +59,9 @@ export const Header = () => {
                     <span className="hidden sm:inline">My logo</span>
                 </div>
 
-                {/* Desktop Navigation */}
                 <nav className="hidden md:block">
                     <ul className="flex px-2 sm:px-5 justify-between gap-5 sm:gap-10 text-sm sm:text-[18px] items-end border-b-2 border-[silver]/40">
-                        {['Home', 'Projects', 'About', 'Contacts'].map((item) => (
+                        {['Home', 'About', 'Skills', 'Projects', 'Contacts'].map((item) => (
                             <li 
                                 key={item}
                                 className="hover:text-[#C9F31D] transition-colors cursor-pointer whitespace-nowrap"
@@ -74,7 +72,6 @@ export const Header = () => {
                     </ul>
                 </nav>
 
-                {/* Mobile Menu Button */}
                 <button 
                     className="md:hidden text-white focus:outline-none"
                     onClick={toggleMobileMenu}
@@ -88,13 +85,11 @@ export const Header = () => {
                     </svg>
                 </button>
 
-                {/* Desktop Contact Button */}
                 <button className="hidden md:block bg-[#C9F31D] px-4 py-1 sm:px-6 sm:py-2 text-black text-sm sm:text-base font-medium hover:bg-[#b8e01a] transition-colors whitespace-nowrap">
                     Контакты
                 </button>
             </div>
 
-            {/* Mobile Menu */}
             <AnimatePresence>
                 {isMobileMenuOpen && (
                     <motion.div
