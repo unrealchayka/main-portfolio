@@ -306,31 +306,51 @@ function Skills() {
 };
 
 function Projects() {
-
   const ProjectsData = [
-    { src: '/projects/1.jpg', alt: 'project1' },
-    { src: '/projects/2.jpg', alt: 'project2' },
-    { src: '/projects/3.jpg', alt: 'project3' },
+    { 
+      src: '/projects/1.jpg', 
+      alt: 'project1',
+      description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero voluptas non beatae eveniet.',
+      tags: ['django', 'next js', 'celery'],
+      link: '#'
+    },
+    { 
+      src: '/projects/2.jpg', 
+      alt: 'project2',
+      description: 'Another project description with different details about the implementation.',
+      tags: ['react', 'typescript', 'node'],
+      link: '#'
+    },
+    { 
+      src: '/projects/3.jpg', 
+      alt: 'project3',
+      description: 'Third project with unique features and technologies used in development.',
+      tags: ['python', 'fastapi', 'postgresql'],
+      link: '#'
+    },
   ];
 
   return (
-    <div className="container p-[5%] mx-auto my-[5%] rounded-md bg-[#d1d1d1] text-[#111]">
-      <p className="flex mt-10 justify-between mb-10 text-[20px] sm:text-[25px] lg:text-[40px] md:text-[30px] xl:text-[100px] items-center gap-5 relative font-bold leading-none">
+    <section className="container px-5 py-10 mx-auto my-5 md:my-10 rounded-md bg-gray-200 text-gray-900">
+      <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-8 md:mb-12">
         Projects
-      </p>
+      </h2>
 
-      <div className="flex flex-col gap-5 w-full">
+      <div className="flex flex-col gap-8 md:gap-12 w-full">
         {ProjectsData.map((project, index) => (
-          <div key={index}>
-            <Project src={project.src} alt={project.alt} />
-          </div>
+          <Project 
+            key={index}
+            src={project.src} 
+            alt={project.alt}
+            description={project.description}
+            tags={project.tags}
+            link={project.link}
+          />
         ))}
-
       </div>
-
-    </div>
+    </section>
   );
-};
+}
 
 
 function Contact() {

@@ -1,34 +1,66 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+
 interface ProjectProps {
-    src: string,
-    w?: number,
-    h?: number,
-    alt: string
+  src: string;
+  alt: string;
+  description: string;
+  tags: string[];
+  link: string;
+  w?: number;
+  h?: number;
 }
 
 export const Project: React.FC<ProjectProps> = ({
-    src, w = 700, h = 700, alt = ''
+  src, 
+  w = 800, 
+  h = 600, 
+  alt = '',
+  description,
+  tags,
+  link
 }) => {
-
-    return (
-        <>
-            <div className='w-full flex justify-between gap-10 pb-3 pr-[5%]'>
-                <Image className='w-[20%]' src={`${src}`} width={w} height={h} alt={alt}></Image>
-                <p className='w-[50%] text-[20px] text-center flex items-center justify-center'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero voluptas non beatae eveniet, dolore delectus architecto modi molestias sit pariatur.</p>
-                <div className='flex flex-col justify-center gap-3 text-[20px] font-bold'>
-                    <span className='bg-[#111] text-white px-3 rounded-sm'>django</span>
-                    <span className='bg-[#111] text-white px-3 rounded-sm'>next js</span>
-                    <span className='bg-[#111] text-white px-3 rounded-sm'>celery</span>
-                </div>
-            </div>
-            <div>
-                <p className='text-[20px] flex justify-center gap-5 border-b-1 pb-5'>Prewiev: <Link className='bg-[#111] text-white px-3 py-1 rounded-sm' href="#">click !</Link></p>
-            </div>
-        </>
-    );
+  return (
+    <article className="w-full border-b border-gray-300 pb-6 last:border-b-0">
+      <div className="flex flex-col lg:flex-row justify-between gap-4 md:gap-6 lg:gap-8 pb-4">
+        <div className="w-full lg:w-1/4 xl:w-1/5">
+          <Image 
+            className="w-full h-auto rounded-lg shadow-md"
+            src={src} 
+            width={w} 
+            height={h} 
+            alt={alt}
+            priority={false}
+          />
+        </div>
+        
+        <p className="w-full lg:w-2/4 text-base md:text-lg text-gray-700 flex items-center">
+          {description}
+        </p>
+        
+        <div className="w-full lg:w-1/4 flex flex-wrap lg:flex-col justify-start lg:justify-center gap-2 md:gap-3">
+          {tags.map((tag, index) => (
+            <span 
+              key={index}
+              className="inline-block bg-gray-900 text-white px-3 py-1 text-sm md:text-base rounded-sm"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+      </div>
+      
+      <div className="flex justify-center md:justify-end mt-4">
+        <Link 
+          href={link} 
+          className="bg-gray-900 hover:bg-gray-700 text-white px-4 py-2 text-sm md:text-base rounded-sm transition-colors duration-200"
+        >
+          Preview
+        </Link>
+      </div>
+    </article>
+  );
 }
-
 
 export default Project;
