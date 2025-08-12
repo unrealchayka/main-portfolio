@@ -99,7 +99,7 @@ export const Header = () => {
                         height={100}
                         alt="Website logo"
                     />
-                    <span className="hidden sm:inline">My logo</span>
+                    <span className="hidden sm:inline">The Best Portfolio</span>
                 </div>
 
                 <nav className="hidden md:block">

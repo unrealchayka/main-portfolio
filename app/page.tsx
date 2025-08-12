@@ -5,6 +5,8 @@ import { Shadow } from "./components/Shadow";
 import InfiniteSlider from "./components/InfinitySlider";
 import { useEffect, useState } from "react";
 import Project from "./components/Project";
+import Link from "next/link";
+import ProfileSection from "./components/TypingText";
 
 export default function () {
   const [activeSection, setActiveSection] = useState('home');
@@ -12,7 +14,7 @@ export default function () {
   useEffect(() => {
     const handleScroll = () => {
       const sections = ['home', 'about', 'skills', 'projects', 'contacts'];
-      const scrollPosition = window.scrollY -300;
+      const scrollPosition = window.scrollY - 300;
 
       for (const section of sections) {
         const element = document.getElementById(section);
@@ -202,7 +204,7 @@ function About() {
       </div>
 
       <div className="container mx-auto px-4 sm:px-5% mt-16 sm:mt-24 md:mt-32 lg:mt-[200px]">
-        <div className="flex flex-col lg:flex-row items-center gap-8 xl:gap-[10%]">
+        <div className="flex flex-col lg:flex-row justify-center items-center gap-8 xl:gap-[10%]">
           <div className="w-full sm:w-4/5 md:w-2/3 lg:w-[30%] h-auto">
             <Image
               src='/hero.jpg'
@@ -215,15 +217,7 @@ function About() {
           </div>
 
           <div className="w-full lg:w-[60%] space-y-4 sm:space-y-5 p-4 sm:p-[3%]">
-            <p className="text-sm sm:text-base md:text-lg lg:text-xl">
-              My journey began with a deep curiosity about how systems work behind the scenes. What started as simple scripts evolved into a passion for building robust, scalable architectures.
-              Driven by an engineering mindset, I specialize in creating efficient backend solutions while maintaining strong frontend capabilities.
-            </p>
-
-            <p className="text-sm sm:text-base md:text-lg lg:text-xl">
-              My focus is on developing high-performance systems that handle complex logic while delivering seamless user experiences.
-              From database optimizations to API design and cloud infrastructure, I bridge the gap between system reliability and user-centric interfaces. Every line of code I write is measured by its performance impact and maintainability.
-            </p>
+            <ProfileSection />
 
             <div className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6 md:gap-10 mt-8 sm:mt-10">
               <div className="text-center">
@@ -330,22 +324,22 @@ function Skills() {
 
 function Projects() {
   const ProjectsData = [
-    { 
-      src: '/projects/1.jpg', 
+    {
+      src: '/projects/1.jpg',
       alt: 'project1',
       description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero voluptas non beatae eveniet.',
       tags: ['django', 'next js', 'celery'],
       link: '#'
     },
-    { 
-      src: '/projects/2.jpg', 
+    {
+      src: '/projects/2.jpg',
       alt: 'project2',
       description: 'Another project description with different details about the implementation.',
       tags: ['react', 'typescript', 'node'],
       link: '#'
     },
-    { 
-      src: '/projects/3.jpg', 
+    {
+      src: '/projects/3.jpg',
       alt: 'project3',
       description: 'Third project with unique features and technologies used in development.',
       tags: ['python', 'fastapi', 'postgresql'],
@@ -354,16 +348,16 @@ function Projects() {
   ];
 
   return (
-    <section id="projects" className="container px-5 py-10 mx-auto my-5 md:my-10 rounded-md bg-gray-200 text-gray-900">
+    <section id="projects" className="container px-5 py-10 mx-auto my-5 md:my-10 rounded-md bg-gray-400 text-gray-900">
       <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-8 md:mb-12">
         Projects
       </h2>
 
       <div className="flex flex-col gap-8 md:gap-12 w-full">
         {ProjectsData.map((project, index) => (
-          <Project 
+          <Project
             key={index}
-            src={project.src} 
+            src={project.src}
             alt={project.alt}
             description={project.description}
             tags={project.tags}
