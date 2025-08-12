@@ -66,10 +66,10 @@ function Preview() {
           alt="cube-image"
         />
         <Image
-          src='/hero.png'
+          src='/samurai.webp'
           className="w-full absolute top-0 left-0 my-drop-shadow"
-          width={2000}
-          height={2000}
+          width={1472}
+          height={1840}
           alt="hero-image"
         />
       </div>

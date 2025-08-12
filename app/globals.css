@@ -36,7 +36,12 @@ body {
 }
 
 .my-drop-shadow{
-  filter: drop-shadow(0 0 2 #ffffff);
+  filter: drop-shadow(0 0 2 #9dff00);
+  background: linear-gradient(to top, #96f31d2d, transparent 90%);
+  border: #C9F31D solid 3px;
+  border-radius: 0 0 8px 8px; 
+  overflow: hidden;
+  border-top: 0;
 }
 
 .drop-shadow-plus{
