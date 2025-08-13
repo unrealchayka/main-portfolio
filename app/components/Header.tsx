@@ -6,29 +6,29 @@ import Image from "next/image";
 
 
 export const useActiveSection = (sections: string[], offset = 100) => {
-  const [activeSection, setActiveSection] = useState(sections[0]);
+    const [activeSection, setActiveSection] = useState(sections[0]);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY + offset;
+    useEffect(() => {
+        const handleScroll = () => {
+            const scrollPosition = window.scrollY + offset;
 
-      for (const section of sections) {
-        const element = document.getElementById(section);
-        if (element) {
-          const { offsetTop, offsetHeight } = element;
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-            setActiveSection(section);
-            break;
-          }
-        }
-      }
-    };
+            for (const section of sections) {
+                const element = document.getElementById(section);
+                if (element) {
+                    const { offsetTop, offsetHeight } = element;
+                    if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+                        setActiveSection(section);
+                        break;
+                    }
+                }
+            }
+        };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [sections, offset]);
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, [sections, offset]);
 
-  return activeSection;
+    return activeSection;
 };
 
 
@@ -38,20 +38,28 @@ export const Header = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const { scrollY } = useScroll();
     const sections = ['home', 'about', 'skills', 'projects', 'contacts'];
-  const activeSection = useActiveSection(sections, 100); // 100px offset
+    const activeSection = useActiveSection(sections, 100); // 100px offset
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      const offset = 100;
-      const elementTop = element.getBoundingClientRect().top + window.pageYOffset;
-      
-      window.scrollTo({
-        top: elementTop - offset,
-        behavior: 'smooth'
-      });
-    }
-  };
+    const scrollToSection = (sectionId: string) => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+            const offset = 100;
+            const elementTop = element.getBoundingClientRect().top + window.pageYOffset;
+
+            window.scrollTo({
+                top: elementTop - offset,
+                behavior: 'smooth',
+            });
+
+            // Закрываем меню после начала скролла (можно добавить задержку)
+            setTimeout(() => setIsMobileMenuOpen(false), 500); // Задержка для плавности
+        }
+    };
+
+    useMotionValueEvent(scrollY, "change", (latest) => {
+        setIsScrolled(latest > 50);
+        // Убираем вызов toggleMobileMenu здесь, чтобы не открывалось/закрывалось при скролле
+    });
     useMotionValueEvent(scrollY, "change", (latest) => {
         setIsScrolled(latest > 50);
     });
@@ -145,7 +153,7 @@ export const Header = () => {
                         transition={{ duration: 0.3 }}
                     >
                         <ul className="flex flex-col items-center py-4 gap-4">
-                            {['home', 'projects', 'about', 'contacts'].map((item) => (
+                            {['home', 'about', 'skills', 'projects', 'contacts'].map((item) => (
                                 <motion.li
                                     key={item}
                                     onClick={() => scrollToSection(item)}
